@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Revision.Models.HocSinh>
+
+@{
+    ViewBag.Title = "Tìm kiếm";
+}
+
+<h2>Tìm kiếm</h2>
+<form action="/hocsinhs/TimKiem" method="post">
+    <div class="d-flex">
+        <input type="text" name="str" class="form-control" />
+        <button class="btn btn-primary" type="submit">Tìm</button>
+    </div>
+</form>
+
+
+@{
+
+    if (Model != null)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LopHoc.tenlop)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hoten)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.anhduthi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.diemthi)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LopHoc.tenlop)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hoten)
+                    </td>
+                    <td>
+                        <img src="~/Images/@item.anhduthi" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diemthi)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.sbd }) |
+                        @Html.ActionLink("Chi tiết", "ChiTiet", new { id = item.sbd }) |
+                        @Html.ActionLink("Xóa", "Xoadulieu", new { id = item.sbd })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+   
+
+
+
+
+
+}

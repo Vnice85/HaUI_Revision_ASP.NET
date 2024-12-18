@@ -1,0 +1,50 @@
+﻿@model Revision.Models.HocSinh
+
+@{
+    ViewBag.Title = "Chi tiết";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Học sinh</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LopHoc.tenlop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LopHoc.tenlop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hoten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.anhduthi)
+        </dt>
+
+        <dd>
+            <img src="~/Images/@Model.anhduthi" alt="Alternate Text" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diemthi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diemthi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.sbd }) |
+    @Html.ActionLink("Về trang chủ", "Xemdanhsach")
+</p>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Revision.Models.HocSinh>
+
+@{
+    ViewBag.Title = "Danh sách";
+}
+
+<h2>Danh sách</h2>
+
+<p>
+    @Html.ActionLink("Tìm kiếm", "TimKiem")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Tên lớp</label>
+        </th>
+        <th>
+            <label>Họ tên</label>
+        </th>
+        <th>
+            <label>Ảnh dự thi</label>
+        </th>
+        <th>
+            <label>Điểm thi</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LopHoc.tenlop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hoten)
+        </td>
+        <td>
+            <img src="~/Images/@item.anhduthi" alt="Alternate Text" />
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diemthi)
+        </td>
+        <td>
+            <a href="/hocsinhs/Edit?id=@item.sbd">Sửa</a>|
+            <a href="/hocsinhs/ChiTiet?id=@item.sbd">Chi tiết</a> |
+            <a href="/hocsinhs/Xoadulieu?id=@item.sbd">Xóa</a>
+        </td>
+    </tr>
+}
+
+</table>
